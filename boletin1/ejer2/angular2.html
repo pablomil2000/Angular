@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,17 +11,19 @@
 
 <body>
 
-    <div ng-app="miAplicacion" ng-controller="miControlador">
-        {{ marca + " " + modelo }}
+    <div ng-app="">
+        Diametro<br>
+        <p>
+
+            <input type="text" ng-model="diametro">
+        </p>
+
+
+
+        diametro: <span ng-bind="diametro * 3.14"></span>
+
     </div>
 
-    <script>
-        var app = angular.module("miAplicacion", []);
-        app.controller("miControlador", function($scope) {
-            $scope.marca = "porsche";
-            $scope.modelo = "911";
-        });
-    </script>
 </body>
 
 </html>
