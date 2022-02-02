@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+
+</head>
+
+<body>
+
+    <div ng-app="miAplicacion" ng-controller="miControlador">
+        <img src="mario.jpg" ng-mouseenter="msg = 'en la imagen'" ng-mouseleave="msg = 'fuera de la imagen'">
+
+        <button ng-click="msg='click'">click</button>
+        <button ng-dblclick="msg='click click'">doble click</button>
+        <p>{{msg}}</p>
+
+
+    </div>
+
+    <script src="angular.js"></script>
+</body>
+
+</html>

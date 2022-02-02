@@ -1,0 +1,47 @@
+<!--
+Nombre del script: bucles_filtros_01.htm Autor: Christian VIGOUROUX
+Fecha de creación: 19/04/2016
+Fecha de última modificación: 19/04/2016 Objetivo: Bucle que recorre una tabla
+-->
+
+<!-- Etiqueta html -->
+<html>
+
+<!-- Sección head -->
+
+<head>
+    <!-- Etiqueta meta de gestión de la acentuación UTF-8 -->
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Llamada al framework AngularJS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+</head>
+
+<!-- Sección body -->
+
+<body>
+
+    <!-- Script html que integra las directivas AngularJS -->
+    <div ng-app="miAplicacion" ng-controller="miControlador">
+
+        <!-- Uso de la tipografía Arial -->
+        <font face="Arial">
+
+            <!-- Bucle que permite recorrer la tabla coches -->
+            <ul>
+                <h1>Agenda</h1>
+                <input type="text" ng-model="filtro">
+                <li ng-repeat="contacto in contactos | filter: filtro">
+                    {{"Nombre: "+contacto.nombre + " Telefono:" + contacto.telefono}}
+                </li>
+            </ul>
+
+        </font>
+    </div>
+
+    <!-- Módulo y controlador AngularJS -->
+    <script src="angular.js"></script>
+
+</body>
+
+</html>
