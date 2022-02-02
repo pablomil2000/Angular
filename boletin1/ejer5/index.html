@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+
+    <div ng-controller="myCtrl">
+        <button ng-click="css()">css</button>
+        <button ng-click="class()">class</button>
+        <button ng-click="reinicio()">reset</button>
+        <p ng-style="css" ng-class="class">Texto para probar</p>
+    </div>
+
+    <script>
+        angular.module('myApp', [])
+            .controller('myCtrl', ['$scope', function($scope) {
+                $scope.css = '';
+                $scope.class = '';
+                $scope.css = function() {
+                    $scope.css = {
+                        "color": "blue",
+                        "background": "green"
+                    }
+                };
+
+                $scope.class = function() {
+                    $scope.class = "item1"
+                };
+
+                $scope.reinicio = function() {
+                    $scope.css = '';
+                    $scope.class = '';
+                };
+            }]);
+    </script>
+
+</body>
+
+</html>
