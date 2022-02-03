@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+    </script>
+    <!-- <script src="ajax.js"></script> -->
+</head>
+
+<body ng-app="miAplicacion" ng-controller="miControlador">
+    <h1>Pruebo Ajax</h1>
+    <div>
+
+        <select id="selec" ng-model="pais" ng-change="cambio">
+            <option value="africa">Africa</option>
+            <option value="europe">Europa</option>
+            <option value="americas">America</option>
+        </select>
+        <ul>
+
+        </ul>
+
+        <script>
+            var application = angular.module("miAplicacion", []);
+
+            application.controller("miControlador", function($scope, $http) {
+                $http.get("json/africa.json").then(function(response) {
+                    pais = (response.data);
+                    return pais;
+                })
+            })
+        </script>
+
+    </div>
+    <ul>
+
+    </ul>
+</body>
+
+</html>
