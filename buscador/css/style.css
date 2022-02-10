@@ -1,0 +1,34 @@
+.container {
+    width: 100%;
+}
+
+.ancho {
+    width: 40vw;
+    height: 10vh
+}
+
+table tr td {
+    /* Solo activar para centrar el texto de la tabla
+    no es tan "ideal" */
+    /* text-align: center; */
+}
+
+.busca {
+    margin: 5em;
+    text-decoration: underline;
+    /* font-size: 32px; */
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    color: #324ead;
+    text-decoration: underline;
+}
+
+.enlace {
+    font-size: 24px;
+}

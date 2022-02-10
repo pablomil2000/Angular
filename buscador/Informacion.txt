@@ -1,0 +1,5 @@
+Base de datos: "bd_neptuno";
+Tabla: "productos";
+
+Usuario de BD: "root";
+Contraseña: "";

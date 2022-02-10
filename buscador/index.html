@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Buscador</title>
+
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <!-- <script src="js/funcion.js"></script> -->
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<bod>
+    <div class="container" ng-app="myApp" ng-controller="myCtrl">
+        <div class="busca">
+            <h1><a href="index.html">Buscador</a></h1>
+        </div>
+
+        <div class="form">
+            <form action="#" method="post">
+                <input ng-keyup="buscador()" ng-model="busc" class="ancho" type="search" name="busqueda" id="busqueda" placeholder="Introduce tu busqueda" autocomplete="off">
+            </form>
+        </div>
+        <p id="mostrar"></p>
+        <table class="table ancho" id="res"></table>
+        <!-- <div id="content"></div> -->
+    </div>
+
+    <script>
+        app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $http) {
+            $scope.buscador = function() {
+                $scope.url = 'php/consulta.php?buscar=' + $scope.busc;
+                $http.get($scope.url)
+                    .then(function(response) {
+                        $scope.resultado = response.data;
+
+                        var cad = '';
+                        console.clear();
+                        for (const key in $scope.resultado) {
+                            console.log($scope.resultado[key].producto)
+                                // cad += '<div class="card" style="width: 20vw;"><div class="card-body"><h5 class="card-title">' + obj[key].producto + '</h5><p class="card-text"></p><a href="#" class="btn btn-primary">Go somewhere</a></div></div>';
+                            cad += '<tr><td> <a class="enlace" href="pagProduct.php?id=' + $scope.resultado[key].id + '">' + $scope.resultado[key].producto + '</a> </td></tr>';
+                        }
+                        res.innerHTML = cad;
+                    })
+            };
+        });
+    </script>
+    </body>
+
+</html>
